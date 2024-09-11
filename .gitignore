@@ -1,0 +1,31 @@
+# Системні файли
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Налаштування середовища розробки
+.vscode/
+.idea/
+
+# Збірка та артефакти
+node_modules/
+target/
+*.pyc
+*.class
+
+# Конфігураційні файли з секретами
+.env
+config/*.yml
+config/*.json
+
+# Лог-файли
+*.log
+
+# Тимчасові файли
+*.tmp
+tmp/
+temp/
+
+# Бази даних
+*.sqlite3
+*.db

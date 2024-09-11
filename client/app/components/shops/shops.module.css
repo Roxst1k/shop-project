@@ -1,0 +1,54 @@
+.shopsContainer {
+    width: 25%;
+    padding: 20px;
+    background-color: rgb(137, 103, 179);
+    color: white;
+    border-radius: 20px;
+    border: 2px solid rgb(203, 128, 171);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.shopsTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.shopsWrapper {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 10px;
+}
+
+.shop {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(203, 128, 171);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: all ease-in 0.1s;
+}
+
+.shop:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: rgb(230, 217, 162);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.active {
+    transform: scale(1.1);
+    background-color: rgb(230, 217, 162);
+}

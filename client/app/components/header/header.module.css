@@ -1,0 +1,39 @@
+.wrapper {
+    width: 100%;
+    padding: 20px 35px;
+    background-color: rgb(98, 78, 136);
+    color: white;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 2px solid rgb(203, 128, 171);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.navigationList {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.navigationItem {
+    position: relative;
+}
+
+.navigationItem:after {
+    content: "|";
+    position: absolute;
+    right: -1rem;
+}
+
+.navigationItem:last-child:after {
+    content: "";
+}
+
+.navigationActive {
+    font-size: 1.1rem;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
+    color: rgb(230, 217, 162);
+}
