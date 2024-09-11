@@ -2,6 +2,7 @@ import styles from './products.module.css'
 import {getProductsFromShopById} from "@/app/services/api";
 
 
+
 const Products = async ({shopId, randomImageComponent, buyButton}) => {
     const products = await getProductsFromShopById(shopId)
 
@@ -17,7 +18,7 @@ const Products = async ({shopId, randomImageComponent, buyButton}) => {
                         <h3>{product.productName}</h3>
                         <p className={styles.productPrice}>{product.price} грн</p>
                     </div>
-                    {buyButton(product._id, shopId)}
+                    {buyButton(product.id, shopId)}
                 </div>
             ))}
         </div>

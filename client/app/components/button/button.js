@@ -2,15 +2,29 @@
 
 import React, {useState} from 'react';
 import styles from './button.module.css';
+import {getProductByShopIdAndProductId} from "@/app/services/api";
+import {useMyContext} from "@/app/services/context";
 
 const Button = ({productId, shopId}) => {
     const [isAdded, setIsAdded] = useState(false)
-    const handleClick = () => {
+    // const [product, setProduct] = useState([]);
+    const {state, dispatch} = useMyContext()
 
-        console.log(`productId: ${productId}`);
-        console.log(`shopId: ${shopId}`);
+
+    const handleClick = () => {
+        const fetchProduct = async () => {
+            try {
+                const fetchedProduct = await getProductByShopIdAndProductId(shopId, productId);
+                // setProduct(fetchedProduct)
+                dispatch({type: 'addProductToCard', payload: fetchedProduct});
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchProduct();
         setIsAdded(true)
     }
+
 
     return (
         <button

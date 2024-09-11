@@ -37,3 +37,26 @@
     text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
     color: rgb(230, 217, 162);
 }
+
+.cardLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.count {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    background-color: rgb(203, 128, 171);
+    border: 1px solid rgb(230, 217, 162);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -14px;
+    right: -14px;
+}

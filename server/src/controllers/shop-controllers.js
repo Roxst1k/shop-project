@@ -29,6 +29,7 @@ export const getShopById = (req, res) => {
         })
 }
 
+
 export const getProductsFromShopById = (req, res) => {
     const {shopId} = req.params;
 
@@ -47,3 +48,35 @@ export const getProductsFromShopById = (req, res) => {
         })
 }
 
+
+export const getProductByShopIdAndProductId = (req, res) => {
+    const { shopId, productId } = req.params;
+
+    Shop
+        .findById(shopId)
+        .then((shop) => {
+            if (shop) {
+                const product = shop.products.find((product) => {
+                    return product.id === productId;
+                })
+                if (product) {
+                    res
+                        .status(200)
+                        .json(product);
+                } else {
+                    res
+                        .status(404)
+                        .json({ message: 'Product not found' });
+                }
+            } else {
+                res
+                    .status(404)
+                    .json({ message: 'Shop not found' });
+            }
+        })
+        .catch((error) => {
+            res
+                .status(500)
+                .json({ message: 'Server error', error });
+        });
+};
