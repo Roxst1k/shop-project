@@ -16,6 +16,11 @@ const productSchema = new mongoose.Schema({
     id: {
         type: String,
         required: true
+    },
+    isAddToCard: {
+        type: Boolean,
+        default: false,
+        required: true
     }
 });
 

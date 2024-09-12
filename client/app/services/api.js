@@ -1,6 +1,12 @@
+import {unstable_noStore as noStore} from "next/dist/server/web/spec-extension/unstable-no-store";
+
+
 export const getAllShops = async () => {
+    noStore()
     try {
-        const response = await fetch('http://localhost:5000'); // Changed to HTTP
+        const response = await fetch('http://localhost:5000', {
+            cache: 'no-cache',
+        });
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
@@ -26,6 +32,7 @@ export const getShopById = async (shopId) => {
 
 
 export const getProductsFromShopById = async (shopId) => {
+    noStore()
     try {
         const response = await fetch(`http://localhost:5000/shop/${shopId}/products`);
         if (!response.ok) {
@@ -51,3 +58,28 @@ export const getProductByShopIdAndProductId = async (shopId, productId) => {
         return null;
     }
 }
+
+
+export const addChangeToProduct = async (shopId, productId, isAdded) => {
+    console.log('isAdded in api:' + isAdded)
+
+    try {
+        const response = await fetch(`http://localhost:5000/shop/${shopId}/${productId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({isAdded})
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        return await response.json();
+    } catch (err) {
+        console.error('Failed to add change:', err);
+        return null;
+    }
+}
+

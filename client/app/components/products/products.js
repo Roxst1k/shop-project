@@ -1,11 +1,8 @@
 import styles from './products.module.css'
 import {getProductsFromShopById} from "@/app/services/api";
 
-
-
 const Products = async ({shopId, randomImageComponent, buyButton}) => {
     const products = await getProductsFromShopById(shopId)
-
 
     return (
         <div className={styles.container}>
@@ -18,11 +15,13 @@ const Products = async ({shopId, randomImageComponent, buyButton}) => {
                         <h3>{product.productName}</h3>
                         <p className={styles.productPrice}>{product.price} грн</p>
                     </div>
-                    {buyButton(product.id, shopId)}
+                    {buyButton(product.id, shopId, product.isAddToCard)}
                 </div>
             ))}
         </div>
     );
 };
+
+
 
 export default Products;

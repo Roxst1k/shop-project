@@ -16,14 +16,18 @@ const Shops = () => {
         const fetchShops = async () => {
             try {
                 const shops = await getAllShops();
-                setShops(shops);
+                if (shops) {
+                    setShops(shops);
+                } else {
+                    console.error('No shops data returned.');
+                }
             } catch (err) {
-                console.log(err);
+                console.error('Failed to fetch shops:', err);
             }
-        }
+        };
 
         fetchShops();
-    }, [])
+    }, []);
 
     const currentShopId = pathname.split('/').pop();
 

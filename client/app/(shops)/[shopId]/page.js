@@ -10,7 +10,9 @@ export default function Page({params}) {
         <Products
             shopId={shopId}
             randomImageComponent={<RandomImage/>}
-            buyButton = {(productId, shopId) => <Button productId={productId} shopId={shopId} />}
+            buyButton = {(productId, shopId, isAddToCard) => <Button productId={productId} shopId={shopId} isAddToCard={isAddToCard} />}
         />
     )
 }
+
+
