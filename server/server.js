@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import {router as shopRoutes} from './src/routes/shop-routes.js';
+import {router as cardRoutes} from './src/routes/card-routes.js';
 import cors from "cors";
 
 const PORT = process.env.PORT || 5000;
@@ -20,6 +21,7 @@ function setupMiddleware() {
     app.use(cors(corsOptions));
     app.use(express.json());
     app.use(shopRoutes)
+    app.use(cardRoutes)
 }
 
 function connectToDataBase() {

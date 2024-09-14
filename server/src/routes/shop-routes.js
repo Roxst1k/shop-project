@@ -15,3 +15,5 @@ router.get('/shop/:shopId', getShopById);
 router.get('/shop/:shopId/products', getProductsFromShopById);
 router.get('/shop/:shopId/:productId', getProductByShopIdAndProductId);
 router.patch('/shop/:shopId/:productId', updateFieldInShopByShopIdAndProductId);
+
+

@@ -29,7 +29,6 @@ export const getShopById = (req, res) => {
         })
 }
 
-
 export const getProductsFromShopById = (req, res) => {
     const {shopId} = req.params;
 
@@ -47,7 +46,6 @@ export const getProductsFromShopById = (req, res) => {
             }
         })
 }
-
 
 export const getProductByShopIdAndProductId = (req, res) => {
     const {shopId, productId} = req.params;
@@ -80,7 +78,6 @@ export const getProductByShopIdAndProductId = (req, res) => {
                 .json({message: 'Server error', error});
         });
 };
-
 
 export const updateFieldInShopByShopIdAndProductId = (req, res) => {
     const {shopId, productId} = req.params;
