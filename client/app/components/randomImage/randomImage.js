@@ -31,7 +31,8 @@ const RandomImage = () => {
                     onLoad={() => setLoading(false)}
                     src={randomImageUrl}
                     alt="Random"
-                    style={{objectFit: "contain"}}
+                    style={{objectFit: "cover", maxWidth: "100%", maxHeight: "100%"}}
+
                 />
             )}
         </div>

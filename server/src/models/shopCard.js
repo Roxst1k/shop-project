@@ -17,6 +17,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: '1',
+    },
+    productId: {
+        type: String,
+        required: true,
     }
 })
 

@@ -33,7 +33,9 @@ export const getShopById = async (shopId) => {
 export const getProductsFromShopById = async (shopId) => {
     noStore()
     try {
-        const response = await fetch(`http://localhost:5000/shop/${shopId}/products`);
+        const response = await fetch(`http://localhost:5000/shop/${shopId}/products`, {
+            cache: 'no-cache',
+        });
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
@@ -59,7 +61,7 @@ export const getProductByShopIdAndProductId = async (shopId, productId) => {
 }
 
 export const addChangeToProduct = async (shopId, productId, isAdded) => {
-    console.log('isAdded in api:' + isAdded)
+    // console.log('isAdded in api:' + isAdded)
 
     try {
         const response = await fetch(`http://localhost:5000/shop/${shopId}/${productId}`, {
@@ -98,14 +100,14 @@ export const getCard = async () => {
     }
 }
 
-export const addProductToCard = async (name, shopId, price) => {
+export const addProductToCard = async (name, shopId, price, productId) => {
     try {
         const response = await fetch('http://localhost:5000/card/66e46fae871a16b5f7b756dc', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name, shopId, price}),
+            body: JSON.stringify({name, shopId, price, productId}),
             cache: 'no-cache',
         });
         if (!response.ok) {

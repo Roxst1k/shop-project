@@ -3,12 +3,12 @@ import { createContext, useContext, useReducer } from 'react';
 
 const MyContext = createContext();
 
-const initialState = { products: []};
+const initialState = { counter: 0};
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'addProductToCard':
-            return { products: [...state.products, action.payload] };
+        case 'addCount':
+            return { count: state.counter + 1 };
         default:
             return state;
     }

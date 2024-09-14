@@ -15,7 +15,7 @@ const Products = async ({shopId, randomImageComponent, buyButton}) => {
                         <h3>{product.productName}</h3>
                         <p className={styles.productPrice}>{product.price} грн</p>
                     </div>
-                    {buyButton(product.id, shopId, product.isAddToCard)}
+                    {buyButton(product.id, shopId)}
                 </div>
             ))}
         </div>

@@ -16,6 +16,7 @@ export const addProductToCard = (req, res) => {
     const { cardId } = req.params;
     const newProduct = { ...req.body };
 
+
     ShopCard
         .findOneAndUpdate(
             { _id: cardId },
@@ -37,20 +38,18 @@ export const addProductToCard = (req, res) => {
 export const removeProductFromCard = (req, res) => {
     const { cardId, productId } = req.params;
 
-    ShopCard
-        .findOneAndUpdate(
-            { _id: cardId },
-            { $pull: { products: { _id: productId } } },
-            { new: true }
-        )
-        .then((card) => {
-            if (!card) {
-                return res.status(404).json({ message: 'Card not found' });
-            }
-            res.status(200).json(card);
+    console.log(cardId, productId);
+
+    ShopCard.findOneAndUpdate(
+        { _id: cardId },
+        { $pull: { products: { productId: productId } } },
+        { new: true }
+    )
+        .then((updatedCard) => {
+            res.status(200).json(updatedCard);
         })
-        .catch(err => {
-            console.error('Error removing product:', err);
-            res.status(500).json({ message: 'Failed to remove product' });
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ error: "Failed to delete product from card" });
         });
 };
